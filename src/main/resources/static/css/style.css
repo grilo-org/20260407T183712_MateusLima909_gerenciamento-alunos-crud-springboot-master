@@ -1,0 +1,241 @@
+@charset "UTF-8";
+
+/*===========================================*/
+/*       1. CONFIGURAÇÕES E VARIÁVEIS        */
+/*===========================================*/
+:root {
+    --primary-color: #024d57;
+    --accent-color: #7fdce8;
+    --glass-bg: rgba(255, 255, 255, 0.1);
+    --nav-footer-overlay: rgba(2, 77, 87, 0.6); 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #1a1a1a; 
+    min-height: 100vh;
+    background: url('../img/bg-index.jpg') no-repeat center center/cover fixed;
+    display: flex;
+    flex-direction: column;  
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+/*===========================================*/
+/*         2. CABEÇALHO (NAVBAR)             */
+/*===========================================*/
+.main-nav {
+    background-color: transparent !important; 
+    padding: 10px 0;
+    z-index: 1000;
+    position: relative;
+}
+
+.main-nav::before {
+    content: "";
+    position: absolute; top:0; left: 0; width: 100%; height: 100%;
+    background-color: var(--nav-footer-overlay);
+    z-index: -1;
+}
+
+.nav-link { font-weight: 500; transition: color 0.3s; }
+.nav-link:hover { color: var(--accent-color) !important; }
+
+.btn-logout {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 6px 15px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+.btn-logout:hover { background: #dc3545; border-color: #dc3545; }
+
+/*===========================================*/
+/*        3. CONTEÚDO E DASHBOARD            */
+/*===========================================*/
+.dashboard-wrapper {
+    position: relative;
+    flex: 1; 
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+    background: transparent; 
+    overflow: hidden; 
+}
+
+.overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(2, 77, 87, 0.9), rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+.content-area { position: relative; z-index: 10; }
+
+.dashboard-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 40px 30px;
+    text-align: center;
+    color: white;
+    text-decoration: none !important;
+    display: block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dashboard-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-10px);
+    border-color: var(--accent-color);
+}
+
+.card-icon { font-size: 3.5rem; color: var(--accent-color); margin-bottom: 20px; }
+.dashboard-card h3 { font-weight: 600; margin-bottom: 15px; }
+.dashboard-card p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 25px; }
+
+.btn-action {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: var(--primary-color) !important;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/*===========================================*/
+/*        4. FORMULÁRIOS E INPUTS            */
+/*===========================================*/
+.glass-card {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 40px !important;
+}
+
+.glass-card h2, .glass-card h4 {
+    color: white !important;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+label {
+    color: white !important;
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    display: block;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.form-control, .form-select {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #333 !important;
+    height: 45px !important;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    background-color: #fff !important;
+    box-shadow: 0 0 10px var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+}
+
+.form-select {
+    border-radius: 10px;
+    height: 50px !important;
+}
+
+.text-danger.small {
+    font-weight: 500;
+    background: rgba(255, 0, 0, 0.1);
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/*===========================================*/
+/*        5. BOTÕES DE AÇÃO (SALVAR)         */
+/*===========================================*/
+.btn-accent {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: 600;
+    border: none;
+}
+
+.btn-accent:hover {
+    background-color: #5ecbd8;
+    color: var(--primary-color);
+}
+
+.btn-main {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 12px 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-main:hover {
+    background-color: #5ecbd8;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(127, 220, 232, 0.3);
+}
+
+/*===========================================*/
+/*        6. FILTROS E STATUS CARDS          */
+/*===========================================*/
+.status-card-active .card-icon {
+    color: #28a745 !important;
+    filter: drop-shadow(0 0 10px rgba(40, 167, 69, 0.4));
+}
+
+.status-card-inactive .card-icon {
+    color: #dc3545 !important;
+    filter: drop-shadow(0 0 10px rgba(220, 53, 69, 0.4));
+}
+
+.status-card-active:hover { border-color: #28a745 !important; }
+.status-card-inactive:hover { border-color: #dc3545 !important; }
+
+/*===========================================*/
+/*        7. MODAL E RODAPÉ (FOOTER)         */
+/*===========================================*/
+.glass-modal { background: rgba(255, 255, 255, 0.95); border-radius: 20px; border: none; }
+
+footer {
+    padding: 15px;
+    background: transparent; 
+    color: rgba(255,255,255,0.7); 
+    text-align: center;
+    font-size: 0.8rem;
+    position: relative;
+    z-index: 10;
+    height: 100px;
+    margin-top: auto;
+}
+
+footer::before {
+    content: "";
+    position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--nav-footer-overlay);
+    z-index: -1;
+}

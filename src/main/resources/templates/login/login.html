@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sistema Acadêmico</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <section class="registration-container">
+        <div class="glass-card shadow-lg">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold text-dark">Bem-vindo</h2>
+                <p class="text-secondary">Acesse sua conta para gerenciar alunos</p>
+            </div>
+
+            <div class="alert alert-custom alert-dismissible fade show" role="alert" th:if="${message_error}">
+                <i class="bi bi-exclamation-circle-fill me-2"></i>
+                <span th:text="${message_error}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <div class="alert alert-success alert-dismissible fade show mb-4" role="alert" th:if="${message_success}">
+                <i class="bi bi-check-circle-fill me-2"></i>
+                <span th:text="${message_success}"></span>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <form method="post" th:action="@{/login}" th:object="${usuario}">
+                <div class="input-group mb-3">
+                    <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                    <input type="text" th:field="*{user}" class="form-control" placeholder="Usuário ou E-mail" required>
+                </div>
+
+                <div class="input-group mb-4">
+                    <span class="input-group-text"><i class="bi bi-shield-lock"></i></span>
+                    <input type="password" th:field="*{senha}" class="form-control" placeholder="Sua senha" required>
+                </div>
+
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-main btn-lg shadow-sm">Entrar</button>
+                    <hr class="my-3">
+                    <p class="text-muted small mb-1">Ainda não tem acesso?</p>
+                    <a th:href="@{/cadastro}" class="btn btn-outline-secondary">Criar nova conta</a>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <script src="/webjars/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

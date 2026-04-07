@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/*===========================================*/
+/*      1. CONFIGURAÇÕES E VARIÁVEIS         */
+/*===========================================*/
+:root {
+    --primary-color: #024d57;
+    --accent-color: #8fecec;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/*===========================================*/
+/*       2. CONTAINER DE AUTENTICAÇÃO        */
+/*===========================================*/
+.registration-container {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                url('/img/bg-login.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/*===========================================*/
+/*       3. CARD GLASSMORPHISM (LOGIN)       */
+/*===========================================*/
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 40px;
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.3s ease;
+}
+
+.glass-card:hover {
+    transform: translateY(-5px);
+}
+
+/*===========================================*/
+/*       4. ELEMENTOS DE FORMULÁRIO          */
+/*===========================================*/
+.input-group-text {
+    background: white;
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-radius: 10px 0 0 10px;
+    color: var(--primary-color);
+}
+
+.form-control {
+    border-radius: 0 10px 10px 0;
+    height: 50px;
+    border-left: none;
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #ced4da;
+    background: white;
+}
+
+/*===========================================*/
+/*        5. BOTÕES E INTERAÇÕES             */
+/*===========================================*/
+.btn-main {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-weight: 600;
+    height: 50px;
+    transition: all 0.3s;
+}
+
+.btn-main:hover {
+    background-color: #01363d;
+    filter: brightness(1.1);
+    color: white;
+}
+
+.btn-outline-secondary {
+    border-radius: 10px;
+    border: 2px solid #6c757d;
+    height: 40px;
+}
+
+/*===========================================*/
+/*      6. ALERTAS E MENSAGENS DE ERRO       */
+/*===========================================*/
+.alert-custom {
+    background-color: #f8d7da;
+    color: #842029;
+    border: none;
+    border-radius: 10px;
+    font-size: 0.9em;
+    padding: 12px;
+}
